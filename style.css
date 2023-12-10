@@ -1,0 +1,250 @@
+@import "color-palette.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font: inherit;
+    color: var(--clr-text-light);
+    font-family: "PlusJakartaSans", sans-serif;
+    text-decoration: none;
+    border-style: none;
+}
+
+@font-face {
+    font-family: "PlusJakartaSans";
+    src: url("./font/PlusJakartaSans-VariableFont_wght.ttf");
+}
+
+body {
+    background-color: var(--clr-body-bg);
+}
+
+main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: start;
+}
+
+aside {
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: var(--clr-body-bg);
+    border-right: 1px solid var(--clr-border);
+}
+
+.bottom-nav {
+    margin-top: auto;
+}
+
+.info-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--clr-border);
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: 1px solid var(--clr-accent);
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--clr-body-bg);
+    border-bottom: 1px solid var(--clr-border);
+    gap: 1rem;
+}
+
+.open-btn{
+    display: none;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .125rem;
+    background-color: var(--clr-body-bg);
+    cursor: pointer;
+}
+
+.open-btn:hover {
+
+    & span:nth-child(1) {
+        width: 20px;
+    }
+}
+
+.open-btn span{
+    width: 30px;
+    height: 3px;
+    background-color: var(--clr-text-light);
+    transition: .1s ease-in-out;
+}
+
+
+.close-btn{
+    display: none;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .125rem;
+    background-color: var(--clr-body-bg);
+    cursor: pointer;
+}
+
+.close-btn span{
+    width: 30px;
+    height: 3px;
+    background-color: var(--clr-text-light);
+    transition: .1s ease-in-out;
+}
+
+.close-btn span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.close-btn span:nth-child(2) {
+    transform: rotate(-45deg) translateY(-7px);
+}
+
+
+.topbar-wrapper {
+    background-color: var(--clr-body-bg);
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    & h3 {
+        color: var(--clr-accent);
+        font-weight: 800;
+        letter-spacing: -.01em;
+        text-transform: uppercase;
+    }
+}
+
+.topbar form {
+    margin-left: auto;
+}
+
+input {
+    width: 100%;
+    outline: none;
+    border-style: hidden;
+    border-radius: 50px;
+    background-color: #282828;
+    padding: .5rem 1rem;
+}
+
+.seperator {
+    height: 100vh;
+    width: 1px;
+    background-color: #232323;
+    margin: .5rem;
+}
+
+.content {
+    padding: 1.5rem;
+}
+
+.nav-item {
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: 100ms ease-in-out;
+
+
+    & .icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px 20px 5px 10px;
+        background-color: var(--clr-accent);
+    }
+}
+
+.nav-item:hover {
+    background-color: var(--clr-body-bg-hover);
+}
+
+.nav-link {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 100%;
+    width: 100%;
+    gap: .5rem;
+}
+
+.info-head {
+    height: 80px;
+}
+
+main > :first-child {
+    flex-basis: 200px;
+    flex-grow: 1;
+}
+
+main > :last-child {
+    flex-basis: 500px;
+    flex-grow: 9999;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    transition: opacity 0.5s, visibility 0s linear 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.backdrop-visible {
+    transition: opacity 0.5s, visibility 0s linear 0s;
+    opacity: 1;
+    visibility: visible;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+@media (max-width: 1000px) {
+    aside {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        transition: left 0.5s;
+        height: 100vh;
+        width: 250px;
+        z-index: 100;
+    }
+
+    .aside-visible {
+        left: 0;
+    }
+
+    .open-btn {
+        display: flex;
+    }
+
+    .close-btn {
+        display: flex;
+    }
+}
